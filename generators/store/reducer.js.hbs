@@ -1,0 +1,15 @@
+import { {{toUpperCase name}}_LOADING, {{toUpperCase name}}_LOADED } from '../actions/{{name}}';
+
+export default function {{name}}(state = [], action) {
+    switch (action.type) {
+
+        case {{toUpperCase name}}_LOADING:
+            return [];
+
+        case {{toUpperCase name}}_LOADED:
+            return action.response;
+
+        default:
+            return state;
+    }
+}

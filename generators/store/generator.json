@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "from": "action.js.hbs",
+      "to": "src/actions/{{name}}.js"
+    }, {
+      "from": "reducer.js.hbs",
+      "to": "src/reducers/{{name}}.js"
+    }
+  ],
+  "dependencies": [],
+  "description" : "Simple store scaffold"
+}

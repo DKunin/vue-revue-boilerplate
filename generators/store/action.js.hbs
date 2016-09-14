@@ -1,0 +1,21 @@
+export const {{toUpperCase name}}_LOADING = '{{toUpperCase name}}_LOADING';
+export const {{toUpperCase name}}_LOADED = '{{toUpperCase name}}_LOADED';
+
+export function {{name}}Loading() {
+    return {
+        type: {{toUpperCase name}}_LOADING
+    };
+}
+
+export function {{name}}Loaded({{name}}) {
+    return {
+        type: {{toUpperCase name}}_LOADED,
+        {{name}}
+    };
+}
+
+export function {{name}}Load(data) {
+    return dispatch => {
+        dispatch({{name}}Loaded(data));
+    };
+}
