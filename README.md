@@ -8,3 +8,9 @@
 ### Scaffold store files
 
         node_modules/.bin/scaffolt store <name>
+
+## Todo
+
+- [ ] Add basic structure
+- [ ] Add styles architecture
+- [ ] Add dev server

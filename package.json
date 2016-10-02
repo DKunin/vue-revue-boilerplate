@@ -11,9 +11,9 @@
   "author": "DKunin",
   "license": "MIT",
   "dependencies": {
-    "scaffolt": "0.5.0"
   },
   "devDependencies": {
+    "scaffolt": "0.5.0",
     "css-loader": "0.25.0",
     "revue": "2.2.0",
     "vue": "2.0.1",
