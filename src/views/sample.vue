@@ -1,7 +1,6 @@
 <template>
-  <div>Sample</div>
+  <h2>Sample</h2>
 </template>
-
 <script>
   import store from '../store';
 
@@ -11,6 +10,7 @@
       }
     },
     ready: function () {
+
     },
     methods: {
     }

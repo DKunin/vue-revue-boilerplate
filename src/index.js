@@ -3,21 +3,37 @@ import VueRouter from 'vue-router';
 import App from './app';
 
 Vue.use(VueRouter);
+
 if (__DEV__) {
     window.Vue = Vue;
 }
 
 Vue.config.debug = true;
 
-export const router = new VueRouter();
-router.map({
-    '/': {
-        component: require('./views/sample')
+const router = new VueRouter({
+  mode: 'history',
+  base: __dirname,
+  routes: [
+    { 
+        path: '/',
+        name: 'home.index',
+        component: require('./views/sample') 
+    },
+    {
+        path: '*',
+        redirect: '/',
     }
+  ]
 });
 
-router.redirect({
-    '*': '/'
-});
-
-router.start(App, '#app');
+new Vue({
+    router,
+    template: `
+    <div id="app">
+      <router-view></router-view>
+    </div>
+  `,
+    mounted() {
+    console.log('mounted');  
+    }
+}).$mount('#app');

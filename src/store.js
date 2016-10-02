@@ -5,6 +5,7 @@ import reducer from './reducers/index';
 import thunk from 'redux-thunk';
 import logger from './middleware/logger';
 import * as sampleActions from './actions/sample';
+
 const createStoreWithMiddleware = applyMiddleware(
   thunk,
   logger
