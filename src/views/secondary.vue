@@ -1,16 +1,18 @@
 <template>
-  <div>Sample</div>
+    <h2>Secondary View</h2>
 </template>
 
-<script>
-  import store from '../store';
+<style>
 
+</style>
+
+<script>
   export default {
     data() {
       return {
       }
     },
-    ready: function () {
+    created() {
     },
     methods: {
     }

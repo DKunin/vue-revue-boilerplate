@@ -1,23 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './app';
+import styles from './styles/index.css';
 
-Vue.use(VueRouter);
+[
+    VueRouter
+].map(singleItem => Vue.use(singleItem));
+
 if (__DEV__) {
     window.Vue = Vue;
-}
+    Vue.config.debug = true;
+};
 
-Vue.config.debug = true;
-
-export const router = new VueRouter();
-router.map({
-    '/': {
-        component: require('./views/sample')
-    }
+export const router = new VueRouter({
+    scrollBehavior: () => ({ y: 0 }),
+    routes: [
+      { path: '/', component: require('./views/first.vue') },
+      { path: '/secondary', component: require('./views/secondary.vue') }
+    ]
 });
 
-router.redirect({
-    '*': '/'
-});
-
-router.start(App, '#app');
+new Vue({
+    router,
+    ...App
+}).$mount('#app');
