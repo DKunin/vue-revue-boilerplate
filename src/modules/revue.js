@@ -9,14 +9,14 @@ function parseProp(prop) {
     let realProp = prop;
     let storeProp = prop;
     if (re.test(prop)) {
-        [, storeProp, realProp] = prop.match(re);
+        [ , storeProp, realProp ] = prop.match(re);
     }
     return { storeProp, realProp };
 }
 
 function deepProp(obj, path) {
     return path.split('.').reduce((o, p) => o[p], obj);
-};
+}
 
 /**
  * Bind reduxStore to Vue instance
@@ -33,7 +33,10 @@ function bindVue(Vue, store) {
                         const { storeProp, realProp } = prop;
                         if (realProp && storeProp) {
                             // this.$set(store.getState(), realProp, deepProp(store.getState(), storeProp));
-                            this[realProp] = deepProp(store.getState(), storeProp);
+                            this[realProp] = deepProp(
+                                store.getState(),
+                                storeProp
+                            );
                         }
                     });
                 };
@@ -69,7 +72,9 @@ export default class Revue {
     }
     get actions() {
         if (isDev && !this.reduxActions) {
-            throw new Error('[Revue] Binding actions to Revue before calling them!');
+            throw new Error(
+                '[Revue] Binding actions to Revue before calling them!'
+            );
         }
         return this.reduxActions;
     }
